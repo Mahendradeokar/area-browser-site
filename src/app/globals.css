@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/* :root {
+  --background: hsl(0, 0, 100, 100);
+  --foreground: hsl(0, 0, 0, 100);
+  --primary: hsl(76, 69, 21, 100);
+  --secondary: hsl(80, 50, 85, 100);
+  --muted: hsl(82, 15, 54, 100);
+  --neutral-dark: hsl(0, 0, 43, 100);
+  --neutral-light: hsl(0, 0, 57, 100);
+  --overlay: hsl(0, 0, 43, 10);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-neutral-dark: var(--neutral-dark);
+  --color-neutral-light: var(--neutral-light);
+  --color-overlay: var(--overlay);
+} */
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 0%);
+
+  --primary: hsl(76, 69%, 21%);
+  --primary-light: hsl(80, 50%, 85%);
+  --secondary: hsl(82, 15%, 54%);
+
+  --neutral-dark: hsl(0, 0%, 43%);
+  --neutral-light: hsl(0, 0%, 57%);
+  --neutral-overlay: hsl(0, 0%, 43%, 0.1);
+
+  --fs-base: 1rem;
+
+  --fs-display: clamp(
+    calc((76 / 16) * 1rem),
+    8.5vw + -0.45em,
+    calc((160 / 16) * 1rem)
+  );
+  --ls-display: clamp(-0.045em, -0.01vw + -0.045em, -0.05em);
+  --lh-display: 0.85;
+
+  --fs-h1: clamp(calc((50 / 16) * 1rem), 9vw + 1rem, calc((60 / 16) * 1rem));
+  --ls-h1: clamp(-0.03em, -0.01vw + -0.03em, -0.03em);
+  --lh-h1: 0.95;
+
+  --fs-h2: clamp(calc((32 / 16) * 1rem), 11vw + 1rem, calc((40 / 16) * 1rem));
+  --ls-h2: -0.04em;
+  --lh-h2: 1.1;
+
+  --fs-h3: calc((18 / 16) * 1rem);
+  --ls-h3: -0.03em;
+  --lh-h3: 1;
+
+  --fs-paragraph: calc((15 / 16) * 1rem);
+  --ls-paragraph: -0.005em;
+  --lh-paragraph: 1.4;
+
+  /* link 14 -2.5 1.4 */
+  --fs-link: calc((14 / 16) * 1rem);
+  --ls-link: -0.025em;
+  --lh-link: 1.4;
+
+  /* caption 12 -1 1.4 */
+  --fs-caption: calc((12 / 16) * 1rem);
+  --ls-caption: -0.01em;
+  --lh-caption: 1.4;
+
+  /* text 10 auto 1 */
+  --fs-text: calc((10 / 16) * 1rem);
+  --ls-text: normal;
+  --lh-text: 1;
+
+  /* Container */
+  --container-spacing: clamp(1rem, -1.6993rem + 5.4054vw, 2.5rem);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-neutral-dark: var(--neutral-dark);
+  --color-neutral-light: var(--neutral-light);
+  --color-overlay: var(--neutral-overlay);
+
+  --font-display: var(--fs-display);
+  --tracking-display: var(--ls-display);
+  --leading-display: var(--lh-h1);
+
+  --font-h1: var(--fs-h1);
+  --tracking-h1: var(--ls-h1);
+  --leading-h1: var(--lh-h1);
+
+  --font-h2: var(--fs-h2);
+  --tracking-h2: var(--ls-h2);
+  --leading-h2: var(--lh-h2);
+
+  --font-h3: var(--fs-h3);
+  --tracking-h3: var(--ls-h3);
+  --leading-h3: var(--lh-h3);
+
+  --font-paragraph: var(--fs-paragraph);
+  --tracking-paragraph: var(--ls-paragraph);
+  --leading-paragraph: var(--lh-paragraph);
+
+  --font-link: var(--fs-link);
+  --tracking-link: var(--ls-link);
+  --leading-link: var(--lh-link);
+
+  --font-caption: var(--fs-caption);
+  --tracking-caption: var(--ls-caption);
+  --leading-caption: var(--lh-caption);
+
+  --font-text: var(--fs-text);
+  --tracking-text: var(--ls-text);
+  --leading-text: var(--lh-text);
+
+  --font-primary: var(--ff-primary);
+  --font-secondary: var(--ff-secondary);
+  --font-accent: var(--ff-accent);
+
+  --spacing-con: var(--container-spacing);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
