@@ -27,20 +27,19 @@
   --foreground: hsl(0, 0%, 0%);
 
   --primary: hsl(76, 69%, 21%);
-  --primary-light: hsl(80, 50%, 85%);
+  --primary-light: hsl(81, 50%, 85%);
   --secondary: hsl(82, 15%, 54%);
 
   --neutral-dark: hsl(0, 0%, 43%);
   --neutral-light: hsl(0, 0%, 57%);
   --neutral-overlay: hsl(0, 0%, 43%, 0.1);
+  --divider: hsl(0, 0, 91%, 100%);
 
   --fs-base: 1rem;
 
-  --fs-display: clamp(
-    calc((76 / 16) * 1rem),
-    8.5vw + -0.45em,
-    calc((160 / 16) * 1rem)
-  );
+  --fs-display: clamp(calc((76 / 16) * 1rem),
+      8.5vw + -0.45em,
+      calc((160 / 16) * 1rem));
   --ls-display: clamp(-0.045em, -0.01vw + -0.045em, -0.05em);
   --lh-display: 0.85;
 
@@ -56,7 +55,7 @@
   --ls-h3: -0.03em;
   --lh-h3: 1;
 
-  --fs-paragraph: calc((15 / 16) * 1rem);
+  --fs-paragraph: calc((16 / 16) * 1rem);
   --ls-paragraph: -0.005em;
   --lh-paragraph: 1.4;
 
@@ -79,6 +78,29 @@
   --container-spacing: clamp(1rem, -1.6993rem + 5.4054vw, 2.5rem);
 }
 
+@layer base {
+  @import "./css-reset.css";
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--ff-primary);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+
+  .debug {
+    outline: 1px solid red;
+  }
+
+
+  /** {
+    outline: 1px solid red;
+  }*/
+
+
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -88,48 +110,43 @@
   --color-neutral-dark: var(--neutral-dark);
   --color-neutral-light: var(--neutral-light);
   --color-overlay: var(--neutral-overlay);
+  --color-divider: var(--divider);
 
-  --font-display: var(--fs-display);
-  --tracking-display: var(--ls-display);
-  --leading-display: var(--lh-h1);
+  --text-display: var(--fs-display);
+  --text-display--latter-spacing: var(--ls-display);
+  --text-display--line-height: var(--lh-h1);
 
-  --font-h1: var(--fs-h1);
-  --tracking-h1: var(--ls-h1);
-  --leading-h1: var(--lh-h1);
+  --text-h2: var(--fs-h1);
+  --text-h2--latter-spacing: var(--ls-h1);
+  --text-h2--line-height: var(--lh-h2);
 
-  --font-h2: var(--fs-h2);
-  --tracking-h2: var(--ls-h2);
-  --leading-h2: var(--lh-h2);
+  --text-h3: var(--fs-h2);
+  --text-h3--latter-spacing: var(--ls-h2);
+  --text-h3--line-height: var(--lh-h2);
 
-  --font-h3: var(--fs-h3);
-  --tracking-h3: var(--ls-h3);
-  --leading-h3: var(--lh-h3);
+  --text-h4: var(--fs-h3);
+  --text-h4--latter-spacing: var(--ls-h3);
+  --text-h4--line-height: var(--lh-h3);
 
-  --font-paragraph: var(--fs-paragraph);
-  --tracking-paragraph: var(--ls-paragraph);
-  --leading-paragraph: var(--lh-paragraph);
+  --text-paragraph: var(--fs-paragraph);
+  --text-paragraph--latter-spacing: var(--ls-paragraph);
+  --text-paragraph--line-height: var(--lh-paragraph);
 
-  --font-link: var(--fs-link);
-  --tracking-link: var(--ls-link);
-  --leading-link: var(--lh-link);
+  --text-link: var(--fs-link);
+  --text-link--latter-spacing: var(--ls-link);
+  --text-link--line-height: var(--lh-link);
 
-  --font-caption: var(--fs-caption);
-  --tracking-caption: var(--ls-caption);
-  --leading-caption: var(--lh-caption);
+  --text-caption: var(--fs-caption);
+  --text-caption--latter-spacing: var(--ls-caption);
+  --text-caption--line-height: var(--lh-caption);
 
-  --font-text: var(--fs-text);
-  --tracking-text: var(--ls-text);
-  --leading-text: var(--lh-text);
+  --text-text: var(--fs-text);
+  --text-text--latter-spacing: var(--ls-text);
+  --text-text--line-height: var(--lh-text);
 
   --font-primary: var(--ff-primary);
   --font-secondary: var(--ff-secondary);
   --font-accent: var(--ff-accent);
 
   --spacing-con: var(--container-spacing);
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
