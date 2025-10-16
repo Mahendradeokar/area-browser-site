@@ -147,6 +147,8 @@
   --font-primary: var(--ff-primary);
   --font-secondary: var(--ff-secondary);
   --font-accent: var(--ff-accent);
+  --font-rething-sans: var(--ff-rething-sans);
+  --font-reddit-mono: var(--ff-reddit-mono);
 
   --spacing-con: var(--container-spacing);
 }

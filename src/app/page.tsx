@@ -11,11 +11,13 @@ import {
   BrandLogo,
   CableIcon,
   ChartIcon,
+  CheckIcon,
   EarthIcon,
   GovernmentIcon,
   HamburgerIcon,
 } from "~/icons";
 import { SHIMMER_PLACE_HOLDER } from "~/lib/image-placeholder";
+import { cn } from "~/lib/utils";
 
 
 const BENEFIT_LIST = [
@@ -60,6 +62,8 @@ const COMPARE = [
   {
     id: 1,
     company: "Area",
+    fontcss: "font-secondary text-2xl tracking-[-8%] leading-[120%]",
+    shouldShowcase: true,
     features: [
       "Ultra-fast browsing",
       "Advanced AI insights",
@@ -69,25 +73,27 @@ const COMPARE = [
     ],
   },
   {
-    id: 2,
-    company: "HyperView",
-    features: [
-      "Moderate speeds",
-      "No AI assistance",
-      "Steep learning curve",
-      "Customizable dashboards",
-      "Partial UTF-8 support",
-    ],
-  },
-  {
     id: 3,
     company: "WebSurge",
+    fontcss: "font-rething-sans text-2xl tracking-[-8%] leading-[120%] text-neutral-dark",
     features: [
       "Fast browsing",
       "Basic AI recommendations",
       "Restricts customization",
       "Interactive analytics",
       "Potential display errors",
+    ],
+  },
+  {
+    id: 2,
+    company: "HyperView",
+    fontcss: "font-reddit-mono text-2xl tracking-[-8%] leading-[120%] text-neutral-dark",
+    features: [
+      "Moderate speed",
+      "No Advanced AI insights",
+      "Steep learning curve",
+      "Customizable dashboards",
+      "Partial UTF-8 support",
     ],
   },
 ];
@@ -186,7 +192,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section className="mb-30">
+        <section className="mb-20">
           <div className="grid lg:grid-cols-2 lg:gap-5 px-4 md:px-0">
             <div>
               <Divider />
@@ -227,42 +233,65 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section>
-          <h2>Specs</h2>
-          <h3>Why Choose Area?</h3>
-          <p>
-            You need a solution that keeps up. That’s why we developed Area. A
-            developer-friendly approach to streamline your business.{" "}
-          </p>
-          <button type="button">Discover More</button>
-          {COMPARE.map((item) => (
-            <div key={item.id}>
-              <h4>{item.company}</h4>
-              <ul>
-                {item.features.map((feat) => (
-                  <li key={feat + item.id}>{feat}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          {/*<Image
-            alt="Hero Image"
-            src={sculptures4x}
-            placeholder="blur"
-            fill
-            loading="eager"
-          />*/}
+        <section className="mb-25 grid gap-5">
+          <Divider />
+          <div className="grid my-20 mt-15 gap-8 justify-items-center text-center">
+            <p className="text-caption font-accent text-primary">Specs</p>
+            <h2 className="text-h2">Why Choose Area?</h2>
+            <p className="text-paragraph text-neutral-dark font-secondary">
+              You need a solution that keeps up. That’s why we developed Area. A
+              developer-friendly approach to streamline your business.{" "}
+            </p>
+            <Button variant={"secondary"} type="button">Discover More</Button>
+          </div>
+          <div className="overflow-auto -mx-con px-con pb-5 flex">
+            {COMPARE.map((item) => (
+              <div key={item.id} className={cn("flex-1 border-divider last:border-none",
+                item.shouldShowcase ?
+                  "shadow-[0px_2px_4px_0px_hsla(0,0%,0%,0.05)] rounded-[20px] border-2" :
+                  "border-r-2")}>
+                <h4
+                  className={cn("py-10 grid place-items-center px-8 text-2xl border-b-2 border-divider text-ellipsis overflow-hidden whitespace-nowrap",
+                    item.fontcss)}
+                >{item.company}</h4>
+                <ul>
+                  {item.features.map((feat) => (
+                    <li className={cn("py-8 grid grid-cols-[calc(var(--spacing)*3.5)_minmax(200px,1fr)] gap-3 items-center px-5 border-b-2 border-divider last:border-none font-accent text-caption w-full")} key={feat + item.id}>
+                      <CheckIcon className="size-3.5" />
+                      <span className="text-ellipsis overflow-hidden whitespace-nowrap">{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </section>
-        <section>
-          <blockquote>
+        <section className="grid md:grid-cols-2 gap-10 md:gap-5 items-center">
+          <div className="relative overflow-hidden rounded-4xl">
+            <Image
+              alt="Hero Image"
+              src={sculptures4x}
+              placeholder="blur"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover"
+              }}
+              loading="eager"
+            />
+          </div>
+          <Divider className="md:hidden" />
+          <blockquote className="text-h3 my-10 grid gap-12">
             <span>
               “I was skeptical, but Area has completely transformed the way I
               manage my business. The data visualizations are so clear and
               intuitive, and the platform is so easy to use. I can't imagine
               running my company without it.”
             </span>
-            <span>John Smith</span>
-            <span>Head of Data</span>
+            <div className="flex gap-2 items-center">
+              <span className="text-paragraph">John Smith</span>
+              <span className="text-caption font-secondary text-primary">Head of Data</span>
+            </div>
           </blockquote>
         </section>
         <section>

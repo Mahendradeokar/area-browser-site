@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Crimson_Text, DM_Sans, Roboto_Mono } from "next/font/google";
+import { Crimson_Text, DM_Sans, Reddit_Mono, Rethink_Sans, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 const crimsonText = Crimson_Text({
@@ -9,6 +9,8 @@ const crimsonText = Crimson_Text({
 });
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--ff-secondary" });
 const robotoMono = Roboto_Mono({ subsets: ["latin"], variable: "--ff-accent" });
+const rethingSans = Rethink_Sans({ subsets: ["latin"], variable: "--ff-rething-sans" });
+const radditMono = Reddit_Mono({ subsets: ["latin"], variable: "--ff-reddit-mono" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${crimsonText.variable} ${dmSans.variable} ${robotoMono.variable} antialiased`}
+        className={`${crimsonText.variable} ${dmSans.variable} ${robotoMono.variable} ${rethingSans.variable} ${radditMono.variable} antialiased`}
       >
         {children}
       </body>
