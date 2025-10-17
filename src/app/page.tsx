@@ -8,6 +8,7 @@ import { Button } from "~/components/ui/button";
 import { Divider } from "~/components/ui/divider";
 import { Text } from "~/components/ui/heading";
 import {
+  ArrowUpIcon,
   BrandLogo,
   CableIcon,
   ChartIcon,
@@ -251,7 +252,7 @@ export default function Home() {
                   "shadow-[0px_2px_4px_0px_hsla(0,0%,0%,0.05)] rounded-[20px] border-2" :
                   "border-r-2")}>
                 <h4
-                  className={cn("py-10 grid place-items-center px-8 text-2xl border-b-2 border-divider text-ellipsis overflow-hidden whitespace-nowrap",
+                  className={cn("py-10 grid place-items-center px-8 text-2xl border-b-2 border-divider text-ellipsis overflow-hidden font-medium whitespace-nowrap",
                     item.fontcss)}
                 >{item.company}</h4>
                 <ul>
@@ -294,48 +295,66 @@ export default function Home() {
             </div>
           </blockquote>
         </section>
-        <section>
-          <h2>Map Your Success</h2>
-          <button type="button">Discover More</button>
-          <div>
-            <ol>
-              {ROADMAP_TO_SUCCESS.map((item) => (
-                <li key={item.id}>
-                  <h3>{item.title}</h3>
-                  <span>{item.description}</span>
+        <section className="mb-10">
+          <Divider />
+          <div className="flex justify-between flex-wrap gap-10 mt-20">
+            <h2 className="text-h2">Map Your Success</h2>
+            <Button variant={"secondary"} type="button">Discover More</Button>
+          </div>
+          <div className="mt-20 mb-25">
+            <ol className="flex overflow-auto gap-5 -mx-con px-con">
+              {ROADMAP_TO_SUCCESS.map((item, index) => (
+                <li key={item.id} className="pt-15 pb-10 pr-8 grid gap-15 min-w-60  border-t-2 border-divider">
+                  <p className="font-secondary text-[5rem] tracking-[-8%] leading-[100%] text-neutral-light">{String(index + 1).padStart(2, "0")}</p>
+                  <div>
+                    <p className="text-h4 text-ellipsis overflow-hidden whitespace-nowrap">{item.title}</p>
+                    <p className="text-paragraph font-secondary text-neutral-dark line-clamp-4">{item.description}</p>
+                  </div>
                 </li>
               ))}
             </ol>
           </div>
-          {/*<Image
-            alt="Hero Image"
-            src={walkwayToSea4x}
-            placeholder="blur"
-            fill
-            loading="eager"
-          />*/}
+          <div className="relative overflow-hidden rounded-4xl min-h-150">
+            <Image
+              alt="Hero Image"
+              src={walkwayToSea4x}
+              placeholder="blur"
+              loading="eager"
+              fill
+              style={{
+                objectFit: "cover"
+              }}
+            />
+          </div>
         </section>
+        <Divider />
         <section>
-          <h3>Connect with us</h3>
-          <p>
-            Schedule a quick call to learn how Area can turn your regional data
-            into a powerful advantage.2025
-          </p>
-          <button type="button">Learn More</button>
+          <div className="my-30 grid gap-10 max-w-150 justify-center text-center mx-auto">
+            <h3 className="text-h2">Connect with us</h3>
+            <p className="font-secondary text-paragraph text-neutral-dark">
+              Schedule a quick call to learn how Area can turn your regional data
+              into a powerful advantage.2025
+            </p>
+            <Button variant={"primary"} type="button" className="w-full">
+              Learn More
+              <ArrowUpIcon />
+            </Button>
+          </div>
         </section>
-        <footer>
-          <ul>
+        <Divider />
+        <footer className="pt-10 pb-5 grid gap-20">
+          <ul className="grid sm:flex gap-7 font-secondary text-link font-bold">
             <li>Benefits</li>
             <li>Specifications</li>
             <li>How-to</li>
           </ul>
-          <div>
-            <BrandLogo />
-            <div>
-              <span>© Area.</span>
-              <span>2025</span>
+          <div className="flex gap-10 items-end">
+            <BrandLogo className="w-8 h-18" />
+            <div className="flex gap-4">
+              <span className="font-accent text-caption text-primary">© Area.</span>
+              <span className="font-accent text-caption text-primary">2025</span>
             </div>
-            <span>All Rights Reserved</span>
+            <span className="font-accent text-caption text-primary ml-auto">All Rights Reserved</span>
           </div>
         </footer>
       </main>
