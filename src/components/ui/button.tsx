@@ -2,14 +2,16 @@ import { cva, type VariantProps } from "class-variance-authority"
 import type { ComponentProps } from "react";
 import { cn } from "~/lib/utils";
 
-const buttonVariants = cva("inline-flex justify-center items-center text-center focus:ring active:scale-95 transition-all rounded-full gap-0.5 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] hover:cursor-pointer hover:bg-secondary text-link font-secondary font-bold", {
+const buttonVariants = cva("inline-flex justify-center items-center text-center active:scale-95 transition-all rounded-full gap-0.5 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] hover:cursor-pointer hover:bg-secondary text-link font-secondary font-bold", {
   variants: {
     variant: {
       primary: "bg-primary text-background",
-      secondary: "bg-primary-light"
+      secondary: "bg-primary-light",
+      ghost: "bg-transparent text-primary hover:bg-primary/10"
     },
     size: {
-      md: "h-12 py-4 px-6 has-[>svg]:px-4"
+      md: "h-12 py-4 px-6 has-[>svg]:px-4",
+      icon: "h-10 w-10 p-2 [&_svg:not([class*='size-'])]:size-5"
     }
 
   },

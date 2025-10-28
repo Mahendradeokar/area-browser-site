@@ -1,12 +1,15 @@
 import Image from "next/image";
-import heroImage4x from "~/assets/mobile-iphone-image-4x.png";
+import heroImageDesktop4x from "~/assets/Breakpoint=Desktop-hero-image.png";
+import heroImageMobile4x from "~/assets/Breakpoint=Mobile-hero-image.png";
+import heroImageTablet4x from "~/assets/Breakpoint=Tablet-hero-image.png";
 import mountains4x from "~/assets/mountains.png";
 import sculptures4x from "~/assets/sculpture.png";
-import walkwayToSea4x from "~/assets/walkwayToSea.png";
 import showPiece4x from "~/assets/showPieces.png";
+import walkwayToSea4x from "~/assets/walkwayToSea.png";
+import { MobileHeader } from "~/components/shared/mobile-header";
+import { WebHeader } from "~/components/shared/web-header";
 import { Button } from "~/components/ui/button";
 import { Divider } from "~/components/ui/divider";
-import { Text } from "~/components/ui/heading";
 import {
   ArrowUpIcon,
   BrandLogo,
@@ -15,11 +18,8 @@ import {
   CheckIcon,
   EarthIcon,
   GovernmentIcon,
-  HamburgerIcon,
 } from "~/icons";
-import { SHIMMER_PLACE_HOLDER } from "~/lib/image-placeholder";
 import { cn } from "~/lib/utils";
-
 
 const BENEFIT_LIST = [
   {
@@ -54,9 +54,18 @@ const BENEFIT_LIST = [
 
 const CLEAR_WHYS = [
   { id: 1, text: "Spot Trends in Seconds: No more digging through numbers." },
-  { id: 2, text: "Get Everyone on the Same Page: Share easy-to-understand reports with your team." },
-  { id: 3, text: "Make Presentations Pop: Interactive maps and dashboards keep your audience engaged." },
-  { id: 4, text: "Your Global Snapshot: Get a quick, clear overview of your entire operation." },
+  {
+    id: 2,
+    text: "Get Everyone on the Same Page: Share easy-to-understand reports with your team.",
+  },
+  {
+    id: 3,
+    text: "Make Presentations Pop: Interactive maps and dashboards keep your audience engaged.",
+  },
+  {
+    id: 4,
+    text: "Your Global Snapshot: Get a quick, clear overview of your entire operation.",
+  },
 ];
 
 const COMPARE = [
@@ -76,7 +85,8 @@ const COMPARE = [
   {
     id: 3,
     company: "WebSurge",
-    fontcss: "font-rething-sans text-2xl tracking-[-8%] leading-[120%] text-neutral-dark",
+    fontcss:
+      "font-rething-sans text-2xl tracking-[-8%] leading-[120%] text-neutral-dark",
     features: [
       "Fast browsing",
       "Basic AI recommendations",
@@ -88,7 +98,8 @@ const COMPARE = [
   {
     id: 2,
     company: "HyperView",
-    fontcss: "font-reddit-mono text-2xl tracking-[-8%] leading-[120%] text-neutral-dark",
+    fontcss:
+      "font-reddit-mono text-2xl tracking-[-8%] leading-[120%] text-neutral-dark",
     features: [
       "Moderate speed",
       "No Advanced AI insights",
@@ -98,7 +109,6 @@ const COMPARE = [
     ],
   },
 ];
-
 
 const ROADMAP_TO_SUCCESS = [
   {
@@ -127,29 +137,40 @@ const LOGOS = [
   { id: 6, src: "/logo-5.svg", alt: "Logo 5" },
 ];
 
-
 export default function Home() {
   return (
-    <div className="max-w-[92rem] mx-auto">
-      <header className="h-20 flex justify-between items-start p-5 rounded-b-lg shadow-[0px_2px_4px_0px_hsla(0,0%,0%,0.05)] tracking-[-0.08em] leading-[1.2]">
-        <div className="font-secondary text-3xl">Area</div>
-        <HamburgerIcon className="size-6" />
-      </header>
-      <main className="px-con py-10">
-        <h1 className="text-display text-center font-primary hyphens-auto wrap-break-word">Browse everything.</h1>
-        <div className="overflow-hidden pt-30 mx-auto rounded-b-4xl">
-          <div className="relative bg-secondary rounded-4xl h-112">
-            <Image
-              alt="Hero Image"
-              className="absolute -top-25!"
-              src={heroImage4x}
-              loading="eager"
-            />
-          </div>
+    <>
+      <WebHeader />
+      <MobileHeader />
+      <main className="fluid-container py-10">
+        <h1 className="text-display text-center font-primary tracking-di hyphens-auto wrap-break-word">
+          Browse everything.
+        </h1>
+        <div className="pt-18 md:pt-20 xl:pt-25 mx-auto">
+          <Image
+            alt="Hero Image"
+            className="-top-25! md:hidden"
+            src={heroImageMobile4x}
+            loading="eager"
+          />
+          <Image
+            alt="Hero Image"
+            className="hidden md:block xl:hidden"
+            src={heroImageTablet4x}
+            loading="eager"
+          />
+          <Image
+            alt="Hero Image"
+            className="hidden xl:block "
+            src={heroImageDesktop4x}
+            loading="eager"
+          />
         </div>
 
         <section className="my-13 grid gap-5">
-          <h2 className="font-secondary text-paragraph text-neutral-dark">Trusted by:</h2>
+          <h2 className="font-secondary text-paragraph text-neutral-dark">
+            Trusted by:
+          </h2>
           <div className="flex flex-wrap gap-x-10 justify-evenly gap-y-5">
             {LOGOS.map((logo) => (
               <Image
@@ -166,24 +187,30 @@ export default function Home() {
         <section className="pt-20 pb-25">
           <h2 className="font-accent text-caption text-primary">Benefit</h2>
           <h3 className="text-h2 my-7">We’ve cracked the code.</h3>
-          <p className="font-secondary text-paragraph mb-12">Area provides real insights, without the data overload.</p>
+          <p className="font-secondary text-paragraph mb-12">
+            Area provides real insights, without the data overload.
+          </p>
           <div className="pt-10 mb-15">
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {BENEFIT_LIST.map((benefit) => {
                 return (
                   <div key={benefit.title}>
                     <Divider />
-                    <div className="py-10 pr-5" >
-                      <div className="size-6 mb-6"><benefit.icon /></div>
+                    <div className="py-10 pr-5">
+                      <div className="size-6 mb-6">
+                        <benefit.icon />
+                      </div>
                       <h3 className="text-h4 mb-5">{benefit.title}</h3>
-                      <p className="text-paragraph font-secondary text-neutral-dark">{benefit.description}</p>
+                      <p className="text-paragraph font-secondary text-neutral-dark">
+                        {benefit.description}
+                      </p>
                     </div>
                   </div>
                 );
               })}
             </div>
           </div>
-          <div className="relative h-150 pb-25 rounded-4xl overflow-hidden">
+          <div className="relative isolate h-150 pb-25 rounded-4xl overflow-hidden">
             <Image
               alt="Hero Image"
               src={mountains4x}
@@ -209,14 +236,20 @@ export default function Home() {
                       <li key={why.id}>
                         <Divider />
                         <div className="flex gap-8 py-5">
-                          <p className="text-neutral-dark font-secondary text-paragraph">{String(index + 1).padStart(2, "0")}</p>
-                          <p className="text-paragraph font-secondary">{why.text}</p>
+                          <p className="text-neutral-dark font-secondary text-paragraph">
+                            {String(index + 1).padStart(2, "0")}
+                          </p>
+                          <p className="text-paragraph font-secondary">
+                            {why.text}
+                          </p>
                         </div>
                       </li>
                     );
                   })}
                 </ul>
-                <Button variant="secondary" type="button">Discover More</Button>
+                <Button variant="secondary" type="button">
+                  Discover More
+                </Button>
               </div>
             </div>
             <div className="rounded-4xl min-h-96 overflow-hidden">
@@ -225,9 +258,9 @@ export default function Home() {
                 src={showPiece4x}
                 placeholder="blur"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: "cover"
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
                 }}
                 loading="lazy"
               />
@@ -243,23 +276,41 @@ export default function Home() {
               You need a solution that keeps up. That’s why we developed Area. A
               developer-friendly approach to streamline your business.{" "}
             </p>
-            <Button variant={"secondary"} type="button">Discover More</Button>
+            <Button variant={"secondary"} type="button">
+              Discover More
+            </Button>
           </div>
           <div className="overflow-auto -mx-con px-con pb-5 flex">
             {COMPARE.map((item) => (
-              <div key={item.id} className={cn("flex-1 border-divider last:border-none",
-                item.shouldShowcase ?
-                  "shadow-[0px_2px_4px_0px_hsla(0,0%,0%,0.05)] rounded-[20px] border-2" :
-                  "border-r-2")}>
+              <div
+                key={item.id}
+                className={cn(
+                  "flex-1 border-divider last:border-none",
+                  item.shouldShowcase
+                    ? "shadow-[0px_2px_4px_0px_hsla(0,0%,0%,0.05)] rounded-[20px] border-2"
+                    : "border-r-2"
+                )}
+              >
                 <h4
-                  className={cn("py-10 grid place-items-center px-8 text-2xl border-b-2 border-divider text-ellipsis overflow-hidden font-medium whitespace-nowrap",
-                    item.fontcss)}
-                >{item.company}</h4>
+                  className={cn(
+                    "py-10 grid place-items-center px-8 text-2xl border-b-2 border-divider text-ellipsis overflow-hidden font-medium whitespace-nowrap",
+                    item.fontcss
+                  )}
+                >
+                  {item.company}
+                </h4>
                 <ul>
                   {item.features.map((feat) => (
-                    <li className={cn("py-8 grid grid-cols-[calc(var(--spacing)*3.5)_minmax(200px,1fr)] gap-3 items-center px-5 border-b-2 border-divider last:border-none font-accent text-caption w-full")} key={feat + item.id}>
+                    <li
+                      className={cn(
+                        "py-8 grid grid-cols-[calc(var(--spacing)*3.5)_minmax(200px,1fr)] gap-3 items-center px-5 border-b-2 border-divider last:border-none font-accent text-caption w-full"
+                      )}
+                      key={feat + item.id}
+                    >
                       <CheckIcon className="size-3.5" />
-                      <span className="text-ellipsis overflow-hidden whitespace-nowrap">{feat}</span>
+                      <span className="text-ellipsis overflow-hidden whitespace-nowrap">
+                        {feat}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -267,7 +318,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <section className="grid md:grid-cols-2 gap-10 md:gap-5 items-center">
+        <section className="grid md:grid-cols-2 gap-10 md:gap-5 mb-30">
           <div className="relative overflow-hidden rounded-4xl">
             <Image
               alt="Hero Image"
@@ -276,39 +327,53 @@ export default function Home() {
               style={{
                 width: "100%",
                 height: "100%",
-                objectFit: "cover"
+                objectFit: "cover",
               }}
               loading="eager"
             />
           </div>
-          <Divider className="md:hidden" />
-          <blockquote className="text-h3 my-10 grid gap-12">
-            <span>
-              “I was skeptical, but Area has completely transformed the way I
-              manage my business. The data visualizations are so clear and
-              intuitive, and the platform is so easy to use. I can't imagine
-              running my company without it.”
-            </span>
-            <div className="flex gap-2 items-center">
-              <span className="text-paragraph">John Smith</span>
-              <span className="text-caption font-secondary text-primary">Head of Data</span>
-            </div>
-          </blockquote>
+          <div className="border-t-2 border-divider grid place-content-center">
+            <blockquote className="text-h3 my-10 grid gap-12">
+              <span>
+                “I was skeptical, but Area has completely transformed the way I
+                manage my business. The data visualizations are so clear and
+                intuitive, and the platform is so easy to use. I can't imagine
+                running my company without it.”
+              </span>
+              <div className="flex gap-2 items-center">
+                <span className="text-paragraph">John Smith</span>
+                <span className="text-caption font-secondary text-primary">
+                  Head of Data
+                </span>
+              </div>
+            </blockquote>
+          </div>
         </section>
         <section className="mb-10">
           <Divider />
           <div className="flex justify-between flex-wrap gap-10 mt-20">
             <h2 className="text-h2">Map Your Success</h2>
-            <Button variant={"secondary"} type="button">Discover More</Button>
+            <Button variant={"secondary"} type="button">
+              Discover More
+            </Button>
           </div>
           <div className="mt-20 mb-25">
             <ol className="flex overflow-auto gap-5 -mx-con px-con">
               {ROADMAP_TO_SUCCESS.map((item, index) => (
-                <li key={item.id} className="pt-15 pb-10 pr-8 grid gap-15 min-w-60  border-t-2 border-divider">
-                  <p className="font-secondary text-[5rem] tracking-[-8%] leading-[100%] text-neutral-light">{String(index + 1).padStart(2, "0")}</p>
+                <li
+                  key={item.id}
+                  className="pt-15 pb-10 pr-8 grid gap-15 min-w-60  border-t-2 border-divider"
+                >
+                  <p className="font-secondary text-[5rem] tracking-[-8%] leading-[100%] text-neutral-light">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
                   <div>
-                    <p className="text-h4 text-ellipsis overflow-hidden whitespace-nowrap">{item.title}</p>
-                    <p className="text-paragraph font-secondary text-neutral-dark line-clamp-4">{item.description}</p>
+                    <p className="text-h4 text-ellipsis overflow-hidden whitespace-nowrap">
+                      {item.title}
+                    </p>
+                    <p className="text-paragraph font-secondary text-neutral-dark line-clamp-4">
+                      {item.description}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -322,7 +387,7 @@ export default function Home() {
               loading="eager"
               fill
               style={{
-                objectFit: "cover"
+                objectFit: "cover",
               }}
             />
           </div>
@@ -332,8 +397,8 @@ export default function Home() {
           <div className="my-30 grid gap-10 max-w-150 justify-center text-center mx-auto">
             <h3 className="text-h2">Connect with us</h3>
             <p className="font-secondary text-paragraph text-neutral-dark">
-              Schedule a quick call to learn how Area can turn your regional data
-              into a powerful advantage.2025
+              Schedule a quick call to learn how Area can turn your regional
+              data into a powerful advantage.2025
             </p>
             <Button variant={"primary"} type="button" className="w-full">
               Learn More
@@ -351,13 +416,19 @@ export default function Home() {
           <div className="flex gap-10 items-end">
             <BrandLogo className="w-8 h-18" />
             <div className="flex gap-4">
-              <span className="font-accent text-caption text-primary">© Area.</span>
-              <span className="font-accent text-caption text-primary">2025</span>
+              <span className="font-accent text-caption text-primary">
+                © Area.
+              </span>
+              <span className="font-accent text-caption text-primary">
+                2025
+              </span>
             </div>
-            <span className="font-accent text-caption text-primary ml-auto">All Rights Reserved</span>
+            <span className="font-accent text-caption text-primary ml-auto">
+              All Rights Reserved
+            </span>
           </div>
         </footer>
       </main>
-    </div>
+    </>
   );
 }

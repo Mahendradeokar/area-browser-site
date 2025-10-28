@@ -37,17 +37,15 @@
 
   --fs-base: 1rem;
 
-  --fs-display: clamp(calc((76 / 16) * 1rem),
-      8.5vw + -0.45em,
-      calc((160 / 16) * 1rem));
-  --ls-display: clamp(-0.045em, -0.01vw + -0.045em, -0.05em);
+  --fs-display: clamp(4.75rem, 2.6957rem + 9.1304vw, 10rem);
+  --ls-display: -0.05em;
   --lh-display: 0.85;
 
-  --fs-h1: clamp(calc((50 / 16) * 1rem), 9vw + 1rem, calc((60 / 16) * 1rem));
-  --ls-h1: clamp(-0.03em, -0.01vw + -0.03em, -0.03em);
+  --fs-h1: clamp(3.125rem, 2.8804rem + 1.087vw, 3.75rem);
+  --ls-h1: -0.03em;
   --lh-h1: 0.95;
 
-  --fs-h2: clamp(calc((32 / 16) * 1rem), 11vw + 1rem, calc((40 / 16) * 1rem));
+  --fs-h2: clamp(2rem, 1.8043rem + 0.8696vw, 2.5rem);
   --ls-h2: -0.04em;
   --lh-h2: 1.1;
 
@@ -75,7 +73,7 @@
   --lh-text: 1;
 
   /* Container */
-  --container-spacing: clamp(1rem, -1.6993rem + 5.4054vw, 2.5rem);
+  --container-spacing: clamp(1rem, 0.3571rem + 2.8571vw, 2.5rem);
 }
 
 @layer base {
@@ -93,12 +91,9 @@
     outline: 1px solid red;
   }
 
-
   /** {
     outline: 1px solid red;
   }*/
-
-
 }
 
 @theme inline {
@@ -113,35 +108,35 @@
   --color-divider: var(--divider);
 
   --text-display: var(--fs-display);
-  --text-display--latter-spacing: var(--ls-display);
+  --text-display--letter-spacing: var(--ls-display);
   --text-display--line-height: var(--lh-h1);
 
   --text-h2: var(--fs-h1);
-  --text-h2--latter-spacing: var(--ls-h1);
+  --text-h2--letter-spacing: var(--ls-h1);
   --text-h2--line-height: var(--lh-h2);
 
   --text-h3: var(--fs-h2);
-  --text-h3--latter-spacing: var(--ls-h2);
+  --text-h3--letter-spacing: var(--ls-h2);
   --text-h3--line-height: var(--lh-h2);
 
   --text-h4: var(--fs-h3);
-  --text-h4--latter-spacing: var(--ls-h3);
+  --text-h4--letter-spacing: var(--ls-h3);
   --text-h4--line-height: var(--lh-h3);
 
   --text-paragraph: var(--fs-paragraph);
-  --text-paragraph--latter-spacing: var(--ls-paragraph);
+  --text-paragraph--letter-spacing: var(--ls-paragraph);
   --text-paragraph--line-height: var(--lh-paragraph);
 
   --text-link: var(--fs-link);
-  --text-link--latter-spacing: var(--ls-link);
+  --text-link--letter-spacing: var(--ls-link);
   --text-link--line-height: var(--lh-link);
 
   --text-caption: var(--fs-caption);
-  --text-caption--latter-spacing: var(--ls-caption);
+  --text-caption--letter-spacing: var(--ls-caption);
   --text-caption--line-height: var(--lh-caption);
 
   --text-text: var(--fs-text);
-  --text-text--latter-spacing: var(--ls-text);
+  --text-text--letter-spacing: var(--ls-text);
   --text-text--line-height: var(--lh-text);
 
   --font-primary: var(--ff-primary);
@@ -151,4 +146,17 @@
   --font-reddit-mono: var(--ff-reddit-mono);
 
   --spacing-con: var(--container-spacing);
+
+  --ease-out-emil: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@layer components {
+  .fluid-container {
+    --max: 92rem;
+    --pad: 40px;
+
+    max-width: var(--max);
+    margin-inline: auto;
+    padding-inline: max(0px, calc(var(--pad) - ((100vw - var(--max)) / 2)));
+  }
 }
