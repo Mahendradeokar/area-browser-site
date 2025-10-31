@@ -129,12 +129,12 @@ const ROADMAP_TO_SUCCESS = [
 ];
 
 const LOGOS = [
-  { id: 1, src: "/logo-0.svg", alt: "Logo 0" },
-  { id: 2, src: "/logo-1.svg", alt: "Logo 1" },
-  { id: 3, src: "/logo-2.svg", alt: "Logo 2" },
-  { id: 4, src: "/logo-3.svg", alt: "Logo 3" },
-  { id: 5, src: "/logo-4.svg", alt: "Logo 4" },
-  { id: 6, src: "/logo-5.svg", alt: "Logo 5" },
+  { id: 1, src: "/Logo-0.svg", alt: "Logo 0" },
+  { id: 2, src: "/Logo-1.svg", alt: "Logo 1" },
+  { id: 3, src: "/Logo-2.svg", alt: "Logo 2" },
+  { id: 4, src: "/Logo-3.svg", alt: "Logo 3" },
+  { id: 5, src: "/Logo-4.svg", alt: "Logo 4" },
+  { id: 6, src: "/Logo-5.svg", alt: "Logo 5" },
 ];
 
 export default function Home() {
