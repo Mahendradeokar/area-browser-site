@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 export const WebHeader = () => {
   return (
-    <header className="hidden container md:flex justify-between items-center px-con pt-4 pb-17">
+    <header className="hidden md:flex justify-between items-center fluid-container pt-4 pb-17">
       <div className="font-secondary text-3xl py-5">Area</div>
       <Button className="py-5" variant={"primary"} type="button" size={"md"}>
         Learn More

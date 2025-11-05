@@ -91,9 +91,9 @@
     outline: 1px solid red;
   }
 
-  /** {
+  /* * {
     outline: 1px solid red;
-  }*/
+  } */
 }
 
 @theme inline {
@@ -154,9 +154,20 @@
   .fluid-container {
     --max: 92rem;
     --pad: 40px;
-
+    --applied-padding: max(
+      clamp(1rem, 0.3571rem + 2.8571vw, var(--pad)) -
+        max(calc((100vw - var(--max)) / 2), 0px),
+      0px
+    );
     max-width: var(--max);
     margin-inline: auto;
-    padding-inline: max(0px, calc(var(--pad) - ((100vw - var(--max)) / 2)));
+    padding-inline: var(--applied-padding);
+
+    /**
+    viewport
+     max width
+     padding 
+     padding = max(padding - max((viewport - max-width) / 2, 0), 0)
+    **/
   }
 }

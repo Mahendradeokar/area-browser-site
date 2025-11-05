@@ -280,7 +280,7 @@ export default function Home() {
               Discover More
             </Button>
           </div>
-          <div className="overflow-auto -mx-con px-con pb-5 flex">
+          <div className="overflow-auto -mx-(--applied-padding) px-(--applied-padding) pb-5 flex">
             {COMPARE.map((item) => (
               <div
                 key={item.id}
@@ -358,7 +358,7 @@ export default function Home() {
             </Button>
           </div>
           <div className="mt-20 mb-25">
-            <ol className="flex overflow-auto gap-5 -mx-con px-con">
+            <ol className="flex overflow-auto gap-5 -mx-(--applied-padding) px-(--applied-padding)">
               {ROADMAP_TO_SUCCESS.map((item, index) => (
                 <li
                   key={item.id}
