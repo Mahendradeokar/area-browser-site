@@ -143,28 +143,30 @@ export default function Home() {
       <WebHeader />
       <MobileHeader />
       <main className="fluid-container py-10">
-        <h1 className="text-display text-center font-primary tracking-di hyphens-auto wrap-break-word">
-          Browse everything.
-        </h1>
-        <div className="pt-18 md:pt-20 xl:pt-25 mx-auto">
-          <Image
-            alt="Hero Image"
-            className="-top-25! md:hidden"
-            src={heroImageMobile4x}
-            loading="eager"
-          />
-          <Image
-            alt="Hero Image"
-            className="hidden md:block xl:hidden"
-            src={heroImageTablet4x}
-            loading="eager"
-          />
-          <Image
-            alt="Hero Image"
-            className="hidden xl:block "
-            src={heroImageDesktop4x}
-            loading="eager"
-          />
+        <div className="animate-appear-in-view">
+          <h1 className="text-display text-center font-primary tracking-di hyphens-auto wrap-break-word">
+            Browse everything.
+          </h1>
+          <div className="pt-18 md:pt-20 xl:pt-25 mx-auto">
+            <Image
+              alt="Hero Image"
+              className="-top-25! md:hidden"
+              src={heroImageMobile4x}
+              loading="eager"
+            />
+            <Image
+              alt="Hero Image"
+              className="hidden md:block xl:hidden"
+              src={heroImageTablet4x}
+              loading="eager"
+            />
+            <Image
+              alt="Hero Image"
+              className="hidden xl:block "
+              src={heroImageDesktop4x}
+              loading="eager"
+            />
+          </div>
         </div>
 
         <section className="my-13 grid gap-5">
